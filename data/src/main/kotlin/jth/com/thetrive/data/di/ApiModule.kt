@@ -19,7 +19,7 @@ internal object ApiModule {
     private const val CONNECT_TIMEOUT = 15L
     private const val WRITE_TIMEOUT = 15L
     private const val READ_TIMEOUT = 15L
-    private const val BASE_URL = "https://api.github.com/"
+    private const val BASE_URL = "https://apidev.thetrive.com/"
 
     @Provides
     @Singleton

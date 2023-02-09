@@ -11,5 +11,5 @@ interface SampleRemoteSource {
 class SampleRemoteSourceImpl @Inject constructor(
     private val sampleService: TheTriveService
 ) : SampleRemoteSource {
-    override suspend fun getSimple(): List<SampleDTO> = sampleService.getSample()
+    override suspend fun getSimple(): List<SampleDTO> = sampleService.getCollectionCars(3056)
 }
