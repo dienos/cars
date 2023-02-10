@@ -1,6 +1,5 @@
-package jth.com.thetrive.ui.views
+package jth.com.thetrive.ui.views.main
 
-import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -8,6 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import jth.com.thetrive.ui.R
 import jth.com.thetrive.ui.databinding.MainActivityBinding
 import jth.com.thetrive.ui.viewmodels.MainViewModel
+import jth.com.thetrive.ui.views.base.BaseActivity
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<MainActivityBinding>() {

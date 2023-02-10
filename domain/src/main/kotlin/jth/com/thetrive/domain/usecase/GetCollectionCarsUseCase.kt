@@ -19,7 +19,7 @@ class GetCollectionCarsUseCase(private val repository: CollectionRepository) {
             withContext(Dispatchers.IO) {
                 try {
                     val result: MutableList<CarData> = mutableListOf()
-                    val response = repository.getCollectionCars()
+                    val response = repository.getCollectionCars(null)
 
                     if(response.code == RESULT_OK) {
                         response.result?.forEach { item ->

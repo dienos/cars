@@ -77,4 +77,6 @@ dependencies {
 
     implementation(Config.Android.Navigation.fragment)
     implementation(Config.Android.Navigation.ui)
+
+    implementation(Config.Android.Paging.runtime)
 }
