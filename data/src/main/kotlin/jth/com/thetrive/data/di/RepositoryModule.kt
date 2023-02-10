@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import jth.com.thetrive.data.repository.SampleRepository
-import jth.com.thetrive.data.repository.SampleRepositoryImpl
+import jth.com.thetrive.data.repository.CollectionRepository
+import jth.com.thetrive.data.repository.CollectionRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Singleton
     @Binds
-    abstract fun bindsSampleRepository(
-        localSource: SampleRepositoryImpl
-    ): SampleRepository
+    abstract fun bindsCollectionRepository(
+        localSource: CollectionRepositoryImpl
+    ): CollectionRepository
 }
