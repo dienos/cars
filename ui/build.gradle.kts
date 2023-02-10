@@ -74,4 +74,7 @@ dependencies {
     testImplementation( Config.Android.Test.jUnit)
     androidTestImplementation(Config.Android.Test.ext)
     androidTestImplementation(Config.Android.Test.espresso)
+
+    implementation(Config.Android.Navigation.fragment)
+    implementation(Config.Android.Navigation.ui)
 }

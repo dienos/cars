@@ -10,14 +10,14 @@ import jth.com.thetrive.domain.usecase.GetCollectionCarsUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class CollectionViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val getCollectionCarsUseCase: GetCollectionCarsUseCase,
 ) : BaseViewModel() {
 
     private var _collectionCarData = MutableLiveData<List<CarData>>()
     val collectionCarData: LiveData<List<CarData>> = _collectionCarData
 
-    fun getSimpleData() {
+    fun getCollectionCars() {
         viewModelScope.launch {
             getCollectionCarsUseCase(
                 scope = viewModelScope,
