@@ -44,6 +44,11 @@ object Config {
         }
 
         const val recyclerView = "androidx.recyclerview:recyclerview:1.2.1"
+
+        object Navigation {
+            const val fragment = "androidx.navigation:navigation-fragment-ktx:2.4.0"
+            const val ui = "androidx.navigation:navigation-ui-ktx:2.4.0"
+        }
     }
 
     object Glide {
