@@ -80,4 +80,6 @@ dependencies {
     implementation(Config.Android.Navigation.ui)
 
     implementation(Config.Android.Paging.runtime)
+
+    implementation(Config.Lottie.lottie)
 }
