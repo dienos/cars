@@ -2,6 +2,7 @@ package jth.com.thetrive.ui.views.collection
 
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import jth.com.thetrive.ui.R
 import jth.com.thetrive.ui.databinding.CollectionFragmentBinding
@@ -39,6 +40,11 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
                 LinearLayoutManager.VERTICAL,
                 false
             )
+
+        collectionListAdapter.addLoadStateListener {
+            viewModel.updateProgress(it.source.append is LoadState.Loading)
+        }
+
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         binding?.collectionCarList?.layoutManager = layoutManager
         binding?.collectionCarList?.adapter = collectionListAdapter
