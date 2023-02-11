@@ -46,4 +46,6 @@ dependencies {
     kapt(Config.Android.Hilt.hiltAndroidCompiler)
     kapt(Config.Android.Hilt.hiltCompiler)
     implementation(Config.Android.Hilt.hiltLifecycleViewModel)
+
+    implementation(Config.Android.Paging.common)
 }

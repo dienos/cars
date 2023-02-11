@@ -1,4 +1,4 @@
-package jth.com.thetrive.domain.mapper
+package jth.com.thetrive.data.mapper
 
 import jth.com.thetrive.data.model.remote.BrandDTO
 import jth.com.thetrive.data.model.remote.CarDTO

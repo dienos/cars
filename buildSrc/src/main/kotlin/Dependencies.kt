@@ -49,6 +49,13 @@ object Config {
             const val fragment = "androidx.navigation:navigation-fragment-ktx:2.4.0"
             const val ui = "androidx.navigation:navigation-ui-ktx:2.4.0"
         }
+
+        object Paging {
+            private const val version = "3.0.0"
+
+            const val common = "androidx.paging:paging-common:$version"
+            const val runtime = "androidx.paging:paging-runtime:$version"
+        }
     }
 
     object Glide {

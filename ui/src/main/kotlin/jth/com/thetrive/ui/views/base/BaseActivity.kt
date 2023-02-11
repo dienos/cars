@@ -1,4 +1,4 @@
-package jth.com.thetrive.ui.views
+package jth.com.thetrive.ui.views.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
