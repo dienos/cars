@@ -1,4 +1,4 @@
-package jth.com.thetrive.data.model
+package jth.com.thetrive.data.model.remote
 
 import com.google.gson.annotations.SerializedName
 

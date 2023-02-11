@@ -1,4 +1,4 @@
-package jth.com.thetrive.domain.model
+package jth.com.thetrive.data.model.local
 
 data class Car(
     val id: Int?,

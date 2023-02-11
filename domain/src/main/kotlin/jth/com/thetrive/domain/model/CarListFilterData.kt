@@ -1,5 +1,7 @@
 package jth.com.thetrive.domain.model
 
+import jth.com.thetrive.data.model.local.Brand
+
 data class CarListFilterData(
     val brands: List<Brand?>?,
     val bodyTypes: List<BodyType?>?,

@@ -1,8 +1,8 @@
 package jth.com.thetrive.data.api
 
-import jth.com.thetrive.data.model.CarDataDTO
-import jth.com.thetrive.data.model.CarListFilterDataDTO
-import jth.com.thetrive.data.model.CommonDTO
+import jth.com.thetrive.data.model.remote.CarDataDTO
+import jth.com.thetrive.data.model.remote.CarListFilterDataDTO
+import jth.com.thetrive.data.model.remote.CommonDTO
 import retrofit2.http.GET
 import retrofit2.http.Query
 

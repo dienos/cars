@@ -1,12 +1,12 @@
 package jth.com.thetrive.ui.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jth.com.thetrive.domain.model.CarData
-import kotlinx.coroutines.launch
+import jth.com.thetrive.data.model.local.CarData
 import jth.com.thetrive.domain.usecase.GetCollectionCarsUseCase
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,18 +14,7 @@ class MainViewModel @Inject constructor(
     private val getCollectionCarsUseCase: GetCollectionCarsUseCase,
 ) : BaseViewModel() {
 
-    private var _collectionCarData = MutableLiveData<List<CarData>>()
-    val collectionCarData: LiveData<List<CarData>> = _collectionCarData
-
-    fun getCollectionCars() {
-        viewModelScope.launch {
-            getCollectionCarsUseCase(
-                scope = viewModelScope,
-                { result ->
-                    _collectionCarData.value = result
-                },
-                { msg ->
-                })
-        }
+    fun getCollectionCars() : Flow<PagingData<CarData>>  {
+       return getCollectionCarsUseCase.invoke().cachedIn(viewModelScope)
     }
 }

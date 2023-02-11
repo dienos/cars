@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
-    abstract fun initializeViewModel()
+    abstract fun initializeUi()
+    abstract fun initializeUiEvent()
 
     var binding: T? = null
         private set
@@ -28,7 +29,8 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding?.lifecycleOwner = this@BaseFragment
-        initializeViewModel()
+        initializeUi()
+        initializeUiEvent()
         super.onViewCreated(view, savedInstanceState)
     }
 }
