@@ -6,6 +6,7 @@ import jth.com.thetrive.data.model.remote.CarDataDTO
 import jth.com.thetrive.data.model.local.Brand
 import jth.com.thetrive.data.model.local.Car
 import jth.com.thetrive.data.model.local.CarData
+import jth.com.thetrive.data.util.asCommaFormatter
 
 fun CarDataDTO.asCarData(): CarData = CarData(
     id = id,
@@ -23,11 +24,18 @@ fun CarDTO.asCar(): Car = Car(
     name = name,
     imageUrl = imageUrl,
     brand = brand?.asBrand(),
-    price = price,
+    price = price?.let {
+        it.asKoreanPrice()
+    } ?: "",
     purchasePrice = purchasePrice,
-    mileage = mileage,
+    mileage = mileage?.let {
+        it.asMileageString()
+    } ?: "",
     plate = plate,
-    modelYear = modelYear,
+
+    modelYear = modelYear?.let {
+        it.toString()
+    } ?: "",
     registeredAt = registeredAt,
     hasPromotion = hasPromotion,
     originalPrice = originalPrice
@@ -38,4 +46,27 @@ fun BrandDTO.asBrand(): Brand = Brand(
     name = name,
     logoUrl = logoUrl
 )
+
+fun Int.asMileageString(): String {
+    return this.asCommaFormatter()+"km"
+}
+
+fun Long.asKoreanPrice(): String {
+    val price = this
+    return if (price > 0) {
+        if (price < 10000) {
+            "$price 원"
+        } else {
+            val div = price / 10000
+
+            if (div >= 1000) {
+                "$div 억원"
+            } else {
+                "$div 만원"
+            }
+        }
+    } else {
+        ""
+    }
+}
 

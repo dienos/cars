@@ -4,4 +4,5 @@
     <string name="tab_up_coming">업커밍</string>
     <string name="tab_subscription">구독 정보</string>
     <string name="tab_account">계정 정보</string>
+    <string name="dot"><![CDATA[·]]></string>
 </resources>
