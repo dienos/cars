@@ -11,7 +11,6 @@ import jth.com.thetrive.ui.extensions.close
 import jth.com.thetrive.ui.extensions.show
 import jth.com.thetrive.ui.viewmodels.MainViewModel
 import jth.com.thetrive.ui.views.base.BaseActivity
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -22,7 +21,6 @@ class MainActivity : BaseActivity<MainActivityBinding>() {
     override fun getLayoutResId(): Int = R.layout.main_activity
 
     override fun initializeViewModel() {
-        binding?.lifecycleOwner = this
         binding?.viewModel = viewModel
     }
 

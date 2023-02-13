@@ -4,6 +4,10 @@
     <string name="tab_up_coming">업커밍</string>
     <string name="tab_subscription">구독 정보</string>
     <string name="tab_account">계정 정보</string>
+    <string name="filter">필터</string>
+    <string name="reset_filter">필터 초기화</string>
+    <string name="car_filter_hint">어떤 차를 찾으세요?</string>
+    <string name="car_filter_self_hint">직접 입력하기</string>
     <string name="dot"><![CDATA[·]]></string>
     <string name="sold_out">Sold Out</string>
 </resources>

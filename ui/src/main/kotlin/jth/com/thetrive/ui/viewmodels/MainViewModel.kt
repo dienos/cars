@@ -17,4 +17,8 @@ class MainViewModel @Inject constructor(
     fun getCollectionCars() : Flow<PagingData<CarData>>  {
        return getCollectionCarsUseCase.invoke().cachedIn(viewModelScope)
     }
+
+    fun showCarFilterSheet() {
+        updateUi(UiEvent.SHOW_CAR_FILTER_BOTTOM_SHEET.ui)
+    }
 }
