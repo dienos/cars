@@ -1,11 +1,7 @@
 package jth.com.thetrive.data.mapper
 
-import jth.com.thetrive.data.model.remote.BrandDTO
-import jth.com.thetrive.data.model.remote.CarDTO
-import jth.com.thetrive.data.model.remote.CarDataDTO
-import jth.com.thetrive.data.model.local.Brand
-import jth.com.thetrive.data.model.local.Car
-import jth.com.thetrive.data.model.local.CarData
+import jth.com.thetrive.data.model.local.*
+import jth.com.thetrive.data.model.remote.*
 import jth.com.thetrive.data.util.asCommaFormatter
 
 fun CarDataDTO.asCarData(): CarData = CarData(
@@ -47,8 +43,18 @@ fun BrandDTO.asBrand(): Brand = Brand(
     logoUrl = logoUrl
 )
 
+fun BodyTypeDTO.asBodyType(): BodyType = BodyType(
+    id = id,
+    name = name,
+)
+
+fun PriceRangeDTO.asPriceRange(): PriceRange = PriceRange(
+    min = min.toString(),
+    max = max.toString()
+)
+
 fun Int.asMileageString(): String {
-    return this.asCommaFormatter()+"km"
+    return this.asCommaFormatter() + "km"
 }
 
 fun Long.asKoreanPrice(): String {

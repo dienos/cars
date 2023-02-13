@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="adapter"
+            type="jth.com.thetrive.ui.views.collection.CollectionPagingAdapter" />
 
         <import type="android.view.View" />
 
@@ -48,8 +51,10 @@
                 android:visibility="@{item.soldOut ? View.VISIBLE : View.GONE}" />
 
             <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/la_favorite"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:onClick="@{(v) -> adapter.onFavoriteClick(v)}"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="end"

@@ -6,6 +6,9 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import jth.com.thetrive.ui.R
 import jth.com.thetrive.ui.databinding.CollectionFragmentBinding
+import jth.com.thetrive.ui.extensions.close
+import jth.com.thetrive.ui.extensions.show
+import jth.com.thetrive.ui.viewmodels.BaseViewModel
 import jth.com.thetrive.ui.viewmodels.MainViewModel
 import jth.com.thetrive.ui.views.base.BaseFragment
 import kotlinx.coroutines.flow.collectLatest
@@ -30,6 +33,40 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
                 collectionListAdapter.submitData(it)
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.progressFlow.collectLatest { needShow ->
+                try {
+                    if (needShow) {
+                        activity?.supportFragmentManager?.let {
+                            progress.show(it)
+                        }
+                    } else {
+                        progress.close()
+                    }
+
+                }catch (e : Exception) {
+
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.uiEventFlow.collectLatest {
+                when(it) {
+                    BaseViewModel.UiEvent.SHOW_CAR_FILTER_BOTTOM_SHEET.ui -> {
+                        activity?.supportFragmentManager?.let {
+                            manager ->
+                            CollectionCarFilterBottomSheet().show(manager, "filter")
+                        }
+                    }
+                }
+
+                viewModel.setDefaultUi()
+            }
+        }
+
+        viewModel.getCollectionCarsFilter()
     }
 
     private fun setCollectionCars() {
@@ -46,7 +83,11 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
         }
 
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        binding?.collectionCarList?.layoutManager = layoutManager
-        binding?.collectionCarList?.adapter = collectionListAdapter
+        binding?.rvCollectionCarList?.layoutManager = layoutManager
+        binding?.rvCollectionCarList?.adapter = collectionListAdapter
+    }
+
+    override fun initializeViewModel() {
+        binding?.viewModel = viewModel
     }
 }
