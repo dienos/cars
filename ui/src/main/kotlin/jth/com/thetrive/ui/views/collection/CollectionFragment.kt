@@ -6,6 +6,8 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import jth.com.thetrive.ui.R
 import jth.com.thetrive.ui.databinding.CollectionFragmentBinding
+import jth.com.thetrive.ui.extensions.close
+import jth.com.thetrive.ui.extensions.show
 import jth.com.thetrive.ui.viewmodels.BaseViewModel
 import jth.com.thetrive.ui.viewmodels.MainViewModel
 import jth.com.thetrive.ui.views.base.BaseFragment
@@ -33,6 +35,23 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.progressFlow.collectLatest { needShow ->
+                try {
+                    if (needShow) {
+                        activity?.supportFragmentManager?.let {
+                            progress.show(it)
+                        }
+                    } else {
+                        progress.close()
+                    }
+
+                }catch (e : Exception) {
+
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel.uiEventFlow.collectLatest {
                 when(it) {
                     BaseViewModel.UiEvent.SHOW_CAR_FILTER_BOTTOM_SHEET.ui -> {
@@ -46,6 +65,8 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
                 viewModel.setDefaultUi()
             }
         }
+
+        viewModel.getCollectionCarsFilter()
     }
 
     private fun setCollectionCars() {

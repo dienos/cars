@@ -8,6 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import jth.com.thetrive.ui.views.dialog.ProgressDialog
 
 abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
     @LayoutRes
@@ -15,6 +16,8 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
     abstract fun initializeUi()
     abstract fun initializeUiEvent()
     abstract fun initializeViewModel()
+
+    protected val progress = ProgressDialog()
 
     var binding: T? = null
         private set
