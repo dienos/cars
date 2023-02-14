@@ -14,6 +14,8 @@
     <string name="filter_high_price">높은 가격 순</string>
     <string name="car_filter_hint">어떤 차를 찾으세요?</string>
     <string name="car_filter_self_hint">직접 입력하기</string>
+    <string name="confirm">확인</string>
+    <string name="network_error">네트워크에 연결 되지 않았습니다.\n네트워크 상태를 확인 해주세요.</string>
     <string name="dot"><![CDATA[·]]></string>
     <string name="sold_out">Sold Out</string>
 </resources>
