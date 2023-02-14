@@ -12,7 +12,6 @@ import jth.com.thetrive.domain.usecase.GetCollectionCarsFilterDataUseCase
 import jth.com.thetrive.domain.usecase.MakeCollectionCarsFiltersResultUseCase
 import jth.com.thetrive.domain.usecase.GetCollectionCarsUseCase
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,7 +34,8 @@ class MainViewModel @Inject constructor(
         getCollectionCarsFilterUseCase(scope = viewModelScope, {
             filterResult.value = makeCollectionCarsFiltersResultUseCase.invoke(it)
             updateProgress(false)
-        }, { msg ->
+        }, {
+            updateToast(it)
             updateProgress(false)
         })
     }

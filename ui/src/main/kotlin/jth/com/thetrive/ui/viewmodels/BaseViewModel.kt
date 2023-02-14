@@ -9,6 +9,10 @@ open class BaseViewModel : ViewModel() {
         SHOW_CAR_FILTER_BOTTOM_SHEET("show_car_filter_bottom_sheet")
     }
 
+    private val toast = MutableStateFlow("")
+    val toastFlow
+        get() = toast.asStateFlow()
+
     private val progress = MutableStateFlow(false)
     val progressFlow
         get() = progress.asStateFlow()
@@ -27,5 +31,9 @@ open class BaseViewModel : ViewModel() {
 
     fun setDefaultUi() {
         uiEvent.value = ""
+    }
+
+    fun updateToast(text: String) {
+        toast.value = text
     }
 }
