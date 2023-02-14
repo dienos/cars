@@ -6,8 +6,3 @@ fun Int.asCommaFormatter(): String {
     val formatter = DecimalFormat("###,###")
     return formatter.format(this)
 }
-
-fun Long.asCommaFormatter(): String {
-    val formatter = DecimalFormat("###,###")
-    return formatter.format(this)
-}
