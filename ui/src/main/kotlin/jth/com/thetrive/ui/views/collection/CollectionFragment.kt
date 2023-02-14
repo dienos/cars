@@ -57,7 +57,8 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
                     BaseViewModel.UiEvent.SHOW_CAR_FILTER_BOTTOM_SHEET.ui -> {
                         activity?.supportFragmentManager?.let {
                             manager ->
-                            CollectionCarFilterBottomSheet().show(manager, "filter")
+                            val sheet = CollectionCarFilterBottomSheet()
+                            sheet.show(manager, sheet.tag)
                         }
                     }
                 }
