@@ -47,14 +47,6 @@ class MakeCollectionCarsFiltersResultUseCase {
             map["구독료"] = CarFilter(priceRange = it.asPriceRange())
         }
 
-        data.fuelTypes?.let {
-            map["휠타입"] = CarFilter(fuelTypes = it)
-        }
-
-        data.clientAgeSpans?.let {
-            map["고객층"] = CarFilter(clientAgeSpans = it)
-        }
-
         data.clientAgeSpans?.let {
             map["찜한 자동차만 보기"] = CarFilter()
         }

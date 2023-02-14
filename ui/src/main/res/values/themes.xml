@@ -16,6 +16,7 @@
 
     <style name="TransparentBottomSheetDialogFragment" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/TransparentBottomSheetDialogFragmentChild</item>
+        <item name="android:windowIsFloating">false</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
