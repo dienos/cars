@@ -13,20 +13,20 @@
 
     <fragment
         android:id="@+id/up_coming"
-        android:name="jth.com.thetrive.ui.views.collection.CollectionFragment"
-        android:label="CollectionFragment"
-        tools:layout="@layout/collection_fragment" />
+        android:name="jth.com.thetrive.ui.views.collection.EmptyFragment"
+        android:label="EmptyFragment"
+        tools:layout="@layout/empty_fragment" />
 
     <fragment
         android:id="@+id/subscription"
-        android:name="jth.com.thetrive.ui.views.collection.CollectionFragment"
-        android:label="CollectionFragment"
-        tools:layout="@layout/collection_fragment" />
+        android:name="jth.com.thetrive.ui.views.collection.EmptyFragment"
+        android:label="EmptyFragment"
+        tools:layout="@layout/empty_fragment" />
 
     <fragment
         android:id="@+id/account"
-        android:name="jth.com.thetrive.ui.views.collection.CollectionFragment"
-        android:label="CollectionFragment"
-        tools:layout="@layout/collection_fragment" />
+        android:name="jth.com.thetrive.ui.views.collection.EmptyFragment"
+        android:label="EmptyFragment"
+        tools:layout="@layout/empty_fragment" />
 
 </navigation>

@@ -46,7 +46,6 @@ class CollectionFragment : BaseFragment<CollectionFragmentBinding>() {
                     }
 
                 }catch (e : Exception) {
-
                 }
             }
         }
