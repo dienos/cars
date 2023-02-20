@@ -1,5 +1,5 @@
 object Config {
-    const val applicationId = "base.architecture"
+    const val applicationId = "jth.com.thetrive"
 
     object Android {
         const val core = "androidx.core:core-ktx:1.7.0"
